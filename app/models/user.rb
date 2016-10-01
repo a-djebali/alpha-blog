@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+
+  # user's assocition has many articles
+  has_many :articles
+
+  # turn the email to lowercase (downcase) format before hitting the database
+  before_save{ self.email = email.downcase}
+
   # ensure that username will be present, unique, and well sized
   validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum:3, maximum:25}
 
