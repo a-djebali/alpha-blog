@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'signup', to: 'users#new'
+  #get 'edit', to: 'users#edit'
   resources :users, except: [:new]
   # or just
   # post 'users', to: 'users#create'
